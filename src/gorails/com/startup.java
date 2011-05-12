@@ -20,7 +20,7 @@ import android.widget.TabWidget;
 
 public class startup extends TabActivity implements OnGestureListener {
     /** Called when the activity is first created. */
-
+	// Change
 	private static float velocity = 0;
     private GestureDetector gestureScanner;
     private HorizontalScrollView hScroll;
