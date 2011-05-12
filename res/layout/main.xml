@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" android:id="@+id/mainLayout">
-    <HorizontalScrollView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20dip" android:layout_marginRight="20dip" android:layout_marginTop="10dip" android:layout_marginBottom="10dip" android:id="@+id/HList">
-        
-    
-    <LinearLayout android:layout_width="match_parent" android:id="@+id/linearLayout1" android:orientation="horizontal" android:layout_height="wrap_content">
-       
-        
-        <Button android:text="Trip Planning" android:id="@+id/tripPlanBtn" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        <Button android:text="Rail Maps" android:id="@+id/RailMapsBtn" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        
-        <Button android:text="Manage Routes" android:id="@+id/ManageRoutesBtn" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        <Button android:text="Fare Calculator" android:id="@+id/FareCalcBtn" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        <Button android:text="Trip Planning" android:id="@+id/tripPlanBtn" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        <Button android:text="Help" android:id="@+id/HelpBtn" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent"> 
 
-        
-    </LinearLayout>
-    </HorizontalScrollView>
+
+  <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@android:id/tabhost"
+android:weightSum="100"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent">
+<HorizontalScrollView
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+  <TabWidget
+        android:layout_weight="12"
+        android:id="@android:id/tabs"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" android:layout_marginLeft="5dip" android:layout_marginRight="5dip"/>
+  </HorizontalScrollView>
+  
+  
+  
+  <FrameLayout
+        android:background="#000000"
+        android:id="@android:id/tabcontent"
+        android:layout_width="fill_parent" android:layout_height="0dip"/>
+  
+  
+  
+   
+  </TabHost>
+
+  
+  
+  
+  
+
 </LinearLayout>

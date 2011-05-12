@@ -2,7 +2,11 @@ package gorails.com;
 
 
 
+
+
+
 import android.app.Activity;
+import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,22 +14,54 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.widget.HorizontalScrollView;
+import android.widget.TabHost;
+import android.widget.TabHost.TabSpec;
+import android.widget.TabWidget;
 
-public class startup extends Activity implements OnGestureListener {
+public class startup extends TabActivity implements OnGestureListener {
     /** Called when the activity is first created. */
 
 	private static float velocity = 0;
     private GestureDetector gestureScanner;
-    private HorizontalScrollView hScroll;
+    //private HorizontalScrollView hScroll;
+    private TabHost tabHost;
+    private static int index = 0;
     @Override
     public void onCreate(Bundle savedInstanceState)
  
     {
-    	
     	setContentView(R.layout.main);
+
         super.onCreate(savedInstanceState);
         gestureScanner = new GestureDetector(this);        
-        hScroll = (HorizontalScrollView) findViewById(R.id.HList);
+        //hScroll = (HorizontalScrollView) findViewById(R.id.Hlist);
+        tabHost = getTabHost();
+        tabHost.setPadding(10, 0, 10, 0);
+        tabHost.setHorizontalScrollBarEnabled(true);
+        TabWidget tab = tabHost.getTabWidget();
+        tab.setPadding(10, 0, 10, 0);
+        TabSpec newTab = tabHost.newTabSpec("Trip Planner")
+        
+        .setIndicator("Trip Planner")
+        .setContent(new Intent(this, TripPlanner.class)
+        );
+        tabHost.addTab(newTab);
+
+        tabHost.addTab(tabHost.newTabSpec("Full Schedule")
+                .setIndicator("Full Schedule")
+                .setContent(new Intent(this, Map.class)));
+        tabHost.addTab(tabHost.newTabSpec("Fare Calculator")
+                .setIndicator("Fare Calculator")
+                .setContent(new Intent(this, Map.class)));
+        tabHost.addTab(tabHost.newTabSpec("Manage Routes")
+                .setIndicator("Manage Routes")
+                .setContent(new Intent(this, Map.class)));
+        tabHost.addTab(tabHost.newTabSpec("Rail Maps")
+                .setIndicator("Rail Maps")
+                .setContent(new Intent(this, Map.class)));
+        tabHost.addTab(tabHost.newTabSpec("Help/Info")
+                .setIndicator("Help/Info")
+                .setContent(new Intent(this, Map.class)));
         
         
         
@@ -33,9 +69,6 @@ public class startup extends Activity implements OnGestureListener {
     } // ----- End On Create ----- //
     @Override
     public void onResume(){
-    	hScroll = (HorizontalScrollView) findViewById(R.id.HList);
-    	Log.d("startup V resume", "v= "+velocity);
-    	hScroll.fling((int) velocity);
     	super.onResume();   	
     }
     
@@ -50,63 +83,36 @@ public class startup extends Activity implements OnGestureListener {
         return true; 
     }
     @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY){
-    	//text1.setText("-" + "FLING" + "-");
-    	
-    	/*
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY){    	
     	if(velocityX<-1000){
     		//go forward
-    		Intent i = new Intent(startup.this, RailMap.class);
-    		float v = (float) (.3*velocityX);
-    		i.putExtra("v", -v);
-    		Log.d("startup V out", "v= "+(-v));
-			i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
-	        startActivity(i);
-	        finish();
+    		if(index<=4){
+    			index++;
+        		tabHost.setCurrentTab(index);
+    		}    		
     	}
-    	else{
+    	else if(velocityX>1000){
     		//go back
-    	}
-    	*/
+    		if(index!=0){
+    			index--;
+    			tabHost.setCurrentTab(index);
+    		}
+    	}    	
         return true; 
     }
     @Override 
     public void onLongPress(MotionEvent e){
-    	//text1.setText("-" + "LONG PRESS" + "-");
-
     }
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY){
-    	//text1.setText("-" + "SCROLL" + "-");
-    	//int d = (int) ((int) distanceX*0.5);
-    	/*
-    	if(Distance+distanceX>=0){
-    		//Can't Have a negative distance in this case
-    		Distance+=distanceX;
-    	}
     	
-    	hScroll.scrollBy((int) distanceX, 0);
-    	Log.d("Distance", ""+Distance);
-    	
-    	if(Distance>230 && Distance <= 500){
-    		
-    		Intent i = new Intent(startup.this, RailMap.class);
-    		i.putExtra("Distance", Distance);
-			i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
-	        startActivity(i);
-	        finish();
-    	}
-    	*/
         return true;
     } 
     @Override 
     public void onShowPress(MotionEvent e){
-    	//text1.setText("-" + "SHOW PRESS" + "-");
     }    
     @Override 
     public boolean onSingleTapUp(MotionEvent e){
-    	//text1.setText("-" + "SINGLE TAP UP" + "-");
-
         return true;
     }
   
