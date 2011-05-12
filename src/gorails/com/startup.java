@@ -23,7 +23,7 @@ public class startup extends TabActivity implements OnGestureListener {
 
 	private static float velocity = 0;
     private GestureDetector gestureScanner;
-    //private HorizontalScrollView hScroll;
+    private HorizontalScrollView hScroll;
     private TabHost tabHost;
     private static int index = 0;
     @Override
@@ -34,7 +34,7 @@ public class startup extends TabActivity implements OnGestureListener {
 
         super.onCreate(savedInstanceState);
         gestureScanner = new GestureDetector(this);        
-        //hScroll = (HorizontalScrollView) findViewById(R.id.Hlist);
+        hScroll = (HorizontalScrollView) findViewById(R.id.HScroll);
         tabHost = getTabHost();
         tabHost.setPadding(10, 0, 10, 0);
         tabHost.setHorizontalScrollBarEnabled(true);
@@ -42,25 +42,25 @@ public class startup extends TabActivity implements OnGestureListener {
         tab.setPadding(10, 0, 10, 0);
         TabSpec newTab = tabHost.newTabSpec("Trip Planner")
         
-        .setIndicator("Trip Planner")
+        .setIndicator("  Trip Planner  ")
         .setContent(new Intent(this, TripPlanner.class)
         );
         tabHost.addTab(newTab);
 
         tabHost.addTab(tabHost.newTabSpec("Full Schedule")
-                .setIndicator("Full Schedule")
+                .setIndicator("  Schedule  ")
                 .setContent(new Intent(this, Map.class)));
         tabHost.addTab(tabHost.newTabSpec("Fare Calculator")
-                .setIndicator("Fare Calculator")
+                .setIndicator("  Fare Calc  ")
                 .setContent(new Intent(this, Map.class)));
-        tabHost.addTab(tabHost.newTabSpec("Manage Routes")
-                .setIndicator("Manage Routes")
+        tabHost.addTab(tabHost.newTabSpec("My Routes")
+                .setIndicator("  My Routes  ")
                 .setContent(new Intent(this, Map.class)));
         tabHost.addTab(tabHost.newTabSpec("Rail Maps")
-                .setIndicator("Rail Maps")
+                .setIndicator("  Rail Maps  ")
                 .setContent(new Intent(this, Map.class)));
         tabHost.addTab(tabHost.newTabSpec("Help/Info")
-                .setIndicator("Help/Info")
+                .setIndicator("  Help/Info  ")
                 .setContent(new Intent(this, Map.class)));
         
         
@@ -89,6 +89,7 @@ public class startup extends TabActivity implements OnGestureListener {
     		if(index<=4){
     			index++;
         		tabHost.setCurrentTab(index);
+        		hScroll.scrollBy(100, 0);
     		}    		
     	}
     	else if(velocityX>1000){
@@ -96,6 +97,7 @@ public class startup extends TabActivity implements OnGestureListener {
     		if(index!=0){
     			index--;
     			tabHost.setCurrentTab(index);
+    			hScroll.scrollBy(-100, 0);
     		}
     	}    	
         return true; 
