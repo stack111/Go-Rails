@@ -5,15 +5,18 @@
   android:layout_height="match_parent" android:orientation="vertical">
     <TableLayout android:id="@+id/tableLayout1" android:layout_width="match_parent" android:layout_height="wrap_content">
         <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <TextView android:text="Origin" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-        <Button android:text="Pick Line" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+        <TextView android:id="@+id/textView1" android:layout_width="100dip" android:layout_height="wrap_content" android:layout_gravity="center" android:text="Origin:" android:textSize="16dip" android:textStyle="bold"></TextView>
+        <Button android:text="Pick Line" android:id="@+id/button1" android:layout_width="140dip" android:layout_height="wrap_content"></Button>
+        <TextView android:text="Station" android:visibility="gone" android:id="@+id/stationLabel" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
                 
         </TableRow>
-    <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <TextView android:text="Destination" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content" >
+        <TextView android:id="@+id/textView1" android:layout_width="100dip" android:layout_height="wrap_content" android:layout_gravity="center" android:text="Destination:" android:textSize="16dip" android:textStyle="bold"></TextView>
         <Spinner android:id="@+id/destSpinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginBottom="10dip"></Spinner>        
-        </TableRow>
-    
+     </TableRow>
+    <TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content" android:layout_height="wrap_content" >
+      <Button android:text="View Trains" android:id="@+id/ViewTrains" android:layout_width="140dip" android:layout_height="wrap_content"></Button>
+     </TableRow>
     
     
     
