@@ -40,8 +40,7 @@ public class startup extends TabActivity implements OnGestureListener {
         tabHost.setHorizontalScrollBarEnabled(true);
         TabWidget tab = tabHost.getTabWidget();
         tab.setPadding(10, 0, 10, 0);
-        TabSpec newTab = tabHost.newTabSpec("Trip Planner")
-        
+        TabSpec newTab = tabHost.newTabSpec("Trip Planner")        
         .setIndicator("  Trip Planner  ")
         .setContent(new Intent(this, TripPlanner.class)
         );
