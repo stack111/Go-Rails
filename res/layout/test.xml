@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@android:id/tabhost"
+android:weightSum="100"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent">
+
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+        <!-- This layout will always remain on top -->
+         <!-- Tabs at top of screen -->
+        <TabWidget
+        android:layout_weight="12"
+        android:id="@android:id/tabs"
+        android:layout_height="0dip"
+        android:layout_width="wrap_content" android:layout_marginLeft="5dip" android:layout_marginRight="5dip"/>
+        <LinearLayout
+        android:id="@+id/TopBarLayout"
+        
+        android:layout_weight="10"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|left"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:weightSum="100"
+        >
+ 
+                <TextView
+                android:layout_marginRight="5dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mode »"
+                />
+
+                <Button
+                android:id="@+id/ModeChangeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="test"
+                />
+
+                <TextView
+                android:layout_marginRight="5dip"
+                android:layout_marginLeft="5dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="»"
+                />
+
+                <Button
+                android:paddingRight="5dip"
+                android:paddingLeft="5dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="test2"
+                android:id="@+id/DateChangeButton"
+                />
+
+                <View
+                android:layout_weight="100"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                />
+
+                <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ConfigButton"
+                android:src="@drawable/icon"
+                />
+
+        </LinearLayout>
+
+        <!-- Frame for tab content -->
+        <FrameLayout
+        android:background="#000000"
+        android:layout_weight="78"
+        android:id="@android:id/tabcontent"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        />
+
+      
+
+</LinearLayout>
+
+</TabHost>
