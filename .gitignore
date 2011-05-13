@@ -1,7 +1,7 @@
 tmp/**
 tmp/**/*
-*/bin
-*/gen
+**/bin/
+**/gen/
 .DS_Store
 *.tmp
 *.bak
