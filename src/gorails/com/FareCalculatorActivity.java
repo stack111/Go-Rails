@@ -9,7 +9,7 @@ public class FareCalculatorActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         TextView textview = new TextView(this);
-        textview.setText("This is the Advisories tab");
+        textview.setText("This is the Fare Calculator tab");
         setContentView(textview);
     }
 }

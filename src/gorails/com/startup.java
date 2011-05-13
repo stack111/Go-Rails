@@ -48,6 +48,11 @@ public class startup extends TabActivity implements OnGestureListener {
         tabHost.addTab(spec);
 
         // Do the same for the other tabs
+        spec = tabHost.newTabSpec("farecalculator").setIndicator("Fare Calculator",
+        		res.getDrawable(R.drawable.ic_tab_farecalculator))
+                      .setContent(intent);
+        tabHost.addTab(spec);
+        
         intent = new Intent().setClass(this, MapActivity.class);
         spec = tabHost.newTabSpec("map").setIndicator("Map",
                           res.getDrawable(R.drawable.ic_tab_map))
