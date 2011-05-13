@@ -15,6 +15,9 @@
         </activity>
         <activity android:name="TripPlannerActivity" android:label="Go Rails!"></activity>
         <activity android:name="MapActivity" android:label="Go Rails!"></activity>
+        <activity android:name="AdvisoriesActivity" android:label="Go Rails!"></activity>
+        <activity android:name="FareCalculatorActivity" android:label="Go Rails!"></activity>
+        <activity android:name="HelpInfoActivity" android:label="Go Rails!"></activity>
 
     </application>
 </manifest>

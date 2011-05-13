@@ -25,8 +25,6 @@ public class startup extends TabActivity implements OnGestureListener {
 	// Change
 	private static float velocity = 0;
     private GestureDetector gestureScanner;
-    private HorizontalScrollView hScroll;
-    private TabHost tabHost;
     private static int index = 0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +35,7 @@ public class startup extends TabActivity implements OnGestureListener {
         TabHost tabHost = getTabHost();  // The activity TabHost
         TabHost.TabSpec spec;  // Resusable TabSpec for each tab
         Intent intent;  // Reusable Intent for each tab
+        gestureScanner = new GestureDetector(this); // Set the GestureDector for this 
 
         // Create an Intent to launch an Activity for the tab (to be reused)
         intent = new Intent().setClass(this, TripPlannerActivity.class);
@@ -91,6 +90,8 @@ public class startup extends TabActivity implements OnGestureListener {
     }
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY){    	
+    	HorizontalScrollView hScroll = (HorizontalScrollView) findViewById(R.id.HScroll);
+    	TabHost tabHost = getTabHost(); 
     	if(velocityX<-1000){
     		//go forward
     		if(index<=4){
