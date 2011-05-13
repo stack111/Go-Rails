@@ -1,18 +1,19 @@
-tmp/**
-tmp/**/*
-**/bin/
-**/gen/
-.DS_Store
-*.tmp
-*.bak
-*.metadata
-*.swp
-*~.nib
-*.jar
-*.classpath
-*~
+# Android Generated Folders
+bin/
+gen/
+
+# Android Generated Files
 *.apk
-Thumbs.db
-Desktop.ini
+*.ap_
+*.dex
+*.class
+*R.java
 *.properties
-default.properties
+*.classpath
+
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
