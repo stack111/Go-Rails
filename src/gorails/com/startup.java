@@ -48,7 +48,8 @@ public class startup extends TabActivity implements OnGestureListener {
         tabHost.addTab(spec);
 
         // Do the same for the other tabs
-        spec = tabHost.newTabSpec("farecalculator").setIndicator("Fare Calculator",
+        intent = new Intent().setClass(this, FareCalculatorActivity.class);
+        spec = tabHost.newTabSpec("farecalculator").setIndicator("Fare Calc",
         		res.getDrawable(R.drawable.ic_tab_farecalculator))
                       .setContent(intent);
         tabHost.addTab(spec);
@@ -62,6 +63,12 @@ public class startup extends TabActivity implements OnGestureListener {
         intent = new Intent().setClass(this, AdvisoriesActivity.class);
         spec = tabHost.newTabSpec("advisories").setIndicator("Advisories",
                           res.getDrawable(R.drawable.ic_tab_advisories))
+                      .setContent(intent);
+        tabHost.addTab(spec);
+        
+        intent = new Intent().setClass(this, AdvisoriesActivity.class);
+        spec = tabHost.newTabSpec("helfinfo").setIndicator("Help & Info",
+                          res.getDrawable(R.drawable.ic_tab_helpinfo))
                       .setContent(intent);
         tabHost.addTab(spec);
 

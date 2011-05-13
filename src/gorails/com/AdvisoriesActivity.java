@@ -9,7 +9,7 @@ public class AdvisoriesActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         TextView textview = new TextView(this);
-        textview.setText("This is the Advisories tab");
+        textview.setText("This is the Map tab");
         setContentView(textview);
     }
 }
