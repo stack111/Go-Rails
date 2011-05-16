@@ -8,6 +8,8 @@ package gorails.com;
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -27,45 +29,44 @@ public class startup extends TabActivity implements OnGestureListener {
     private TabHost tabHost;
     private static int index = 0;
     @Override
-    public void onCreate(Bundle savedInstanceState)
- 
-    {
-    	setContentView(R.layout.main);
-
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        gestureScanner = new GestureDetector(this);        
-        hScroll = (HorizontalScrollView) findViewById(R.id.HScroll);
-        tabHost = getTabHost();
-        tabHost.setPadding(10, 0, 10, 0);
-        tabHost.setHorizontalScrollBarEnabled(true);
-        TabWidget tab = tabHost.getTabWidget();
-        tab.setPadding(10, 0, 10, 0);
-        TabSpec newTab = tabHost.newTabSpec("Trip Planner")        
-        .setIndicator("  Trip Planner  ")
-        .setContent(new Intent(this, TripPlanner.class)
-        );
-        tabHost.addTab(newTab);
+        setContentView(R.layout.main);
 
-        tabHost.addTab(tabHost.newTabSpec("Full Schedule")
-                .setIndicator("  Schedule  ")
-                .setContent(new Intent(this, Map.class)));
-        tabHost.addTab(tabHost.newTabSpec("Fare Calculator")
-                .setIndicator("  Fare Calc  ")
-                .setContent(new Intent(this, Map.class)));
-        tabHost.addTab(tabHost.newTabSpec("My Routes")
-                .setIndicator("  My Routes  ")
-                .setContent(new Intent(this, Map.class)));
-        tabHost.addTab(tabHost.newTabSpec("Rail Maps")
-                .setIndicator("  Rail Maps  ")
-                .setContent(new Intent(this, Map.class)));
-        tabHost.addTab(tabHost.newTabSpec("Help/Info")
-                .setIndicator("  Help/Info  ")
-                .setContent(new Intent(this, Map.class)));
+        Resources res = getResources(); // Resource object to get Drawables
+        TabHost tabHost = getTabHost();  // The activity TabHost
+        TabHost.TabSpec spec;  // Resusable TabSpec for each tab
+        Intent intent;  // Reusable Intent for each tab
+
+        // Create an Intent to launch an Activity for the tab (to be reused)
+        intent = new Intent().setClass(this, TripPlannerActivity.class);
+
+        // Initialize a TabSpec for each tab and add it to the TabHost
+        spec = tabHost.newTabSpec("tripplanner").setIndicator("Trip Planner",
+        		res.getDrawable(R.drawable.ic_tab_tripplanner))
+                      .setContent(intent);
+        tabHost.addTab(spec);
+
+        // Do the same for the other tabs
+        spec = tabHost.newTabSpec("farecalculator").setIndicator("Fare Calculator",
+        		res.getDrawable(R.drawable.ic_tab_farecalculator))
+                      .setContent(intent);
+        tabHost.addTab(spec);
         
-        
-        
- 
-    } // ----- End On Create ----- //
+        intent = new Intent().setClass(this, MapActivity.class);
+        spec = tabHost.newTabSpec("map").setIndicator("Map",
+                          res.getDrawable(R.drawable.ic_tab_map))
+                      .setContent(intent);
+        tabHost.addTab(spec);
+
+        intent = new Intent().setClass(this, AdvisoriesActivity.class);
+        spec = tabHost.newTabSpec("advisories").setIndicator("Advisories",
+                          res.getDrawable(R.drawable.ic_tab_advisories))
+                      .setContent(intent);
+        tabHost.addTab(spec);
+
+        tabHost.setCurrentTab(0);
+    }
     @Override
     public void onResume(){
     	super.onResume();   	
