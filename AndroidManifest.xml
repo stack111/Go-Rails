@@ -13,8 +13,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TripPlanner" android:label="Go Rails!"></activity>
-        <activity android:name=".Map" android:label="Go Rails!"></activity>
+        <activity android:name="TripPlannerActivity" android:label="Go Rails!"></activity>
+        <activity android:name="MapActivity" android:label="Go Rails!"></activity>
 
     </application>
 </manifest>

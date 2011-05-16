@@ -1,5 +1,19 @@
-*/.settings/
-*/bin/
+# Android Generated Folders
+bin/
+gen/
+
+# Android Generated Files
+*.apk
+*.ap_
+*.dex
 *.class
+*R.java
+*.properties
 *.classpath
-*.project
+
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
