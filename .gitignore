@@ -10,6 +10,7 @@ gen/
 *R.java
 *.properties
 *.classpath
+*.project
 
 # OS generated files #
 ######################
